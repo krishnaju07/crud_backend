@@ -30,7 +30,7 @@ app.post("/create", (req, res) => {
     .catch((err) => res.json(err));
 });
 
-app.put("/update/:id", (req, res) => {
+app.put("/:id/update", (req, res) => {
   const { id } = req.params;
   const { name, email, age } = req.body;
   userModel
@@ -39,7 +39,7 @@ app.put("/update/:id", (req, res) => {
     .catch((err) => res.status(500).json(err));
 });
 
-app.delete("/delete/:id", (req, res) => {
+app.delete("/:id/delete", (req, res) => {
   const { id } = req.params;
   userModel
     .findByIdAndDelete({ _id: id })
